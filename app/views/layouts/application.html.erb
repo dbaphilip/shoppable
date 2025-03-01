@@ -14,24 +14,47 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%# Google Fonts %>
-    <%# Bricolage %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <%# Bricolage %>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <%# Caveat %>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <%#  %>
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <style>
       body {
-          font-family: "Bricolage Grotesque", sans-serif;
+        font-family: "Bricolage Grotesque", sans-serif;
         font-optical-sizing: auto;
+      }
+      .logo {
+        font-size: 3rem !important;
+        font-family: "Caveat", cursive;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        color: #ccc;
       }
     </style>
   </head>
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <header class="bg-green-700">
+      <span class="logo">Shoppable</span>
+      <h1><%= @page_title %></h1>
+    </header>
+    <section class="flex">
+      <nav class="bg-green-900 p-6">
+        <ul class="text-gray-300 leading-8">
+          <li><a href="/">Home</a></li>
+          <li><a href="/questions">Questions</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <main class="container mx-auto mt-4 px-5 flex">
+        <%= yield %>
+      </main>
+    </section>
   </body>
 </html>
